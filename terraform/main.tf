@@ -16,9 +16,9 @@ resource "aws_amplify_app" "swen_project_proto" {
             - yarn install
         build:
           commands:
-            - yarn run build
+            - npm build
       artifacts:
-        baseDirectory: build
+        baseDirectory: src
         files:
           - '**/*'
       cache:
@@ -26,5 +26,13 @@ resource "aws_amplify_app" "swen_project_proto" {
           - node_modules/**/*
   EOT
 
+  access_token = ""
+}
 
+resource "aws_amplify_branch" "master" {
+  app_id      = aws_amplify_app.swen_project_proto.id
+  branch_name = "master"
+
+  framework = "React"
+  stage     = "PRODUCTION"
 }

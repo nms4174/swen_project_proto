@@ -22,7 +22,14 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
 **/.terraform/*
+.terraform.tfstate.lock.info
+.terraform.lock.hcl
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfvars.json
 
 # amplify
 node_modules
